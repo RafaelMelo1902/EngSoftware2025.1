@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public abstract class Usuario {
 	private String codigo;
     private String nome;
-    private int tempoEmprestimo;
+    private ICalculadorEmprestimo calculadorEmprestimo;
     private ArrayList<Emprestimo> emprestimosAtuais;
     private ArrayList<Emprestimo> emprestimosPassados;
     private ArrayList<Reserva> reservas;
@@ -15,14 +16,6 @@ public abstract class Usuario {
         this.emprestimosAtuais = new ArrayList<Emprestimo>();
         this.emprestimosPassados = new ArrayList<Emprestimo>();
     }
-
-    public int getTempoEmprestimo() {
-		return tempoEmprestimo;
-	}
-
-	public void setTempoEmprestimo(int tempoEmprestimo) {
-		this.tempoEmprestimo = tempoEmprestimo;
-	}
 
 	public String getCodigo() {
         return codigo;
@@ -62,4 +55,32 @@ public abstract class Usuario {
 		this.reservas = reservas;
 	}
 
+	public ICalculadorEmprestimo getCalculadorEmprestimo() {
+		return calculadorEmprestimo;
+	}
+
+	public void setCalculadorEmprestimo(ICalculadorEmprestimo calculadorEmprestimo) {
+		this.calculadorEmprestimo = calculadorEmprestimo;
+	}
+	public abstract int getTempoEmprestimo();
+
+	public boolean verificaDevedor() {
+	    Date hoje = new Date();
+
+	    for (Emprestimo emprestimo : emprestimosAtuais) {
+	        Date prazo = emprestimo.getPrazoDevolucao();
+
+	        if (prazo != null && hoje.after(prazo)) {
+	            
+	            return true;
+	        }
+	    }
+
+	    return false;
+	}
+	
+	public boolean fazerEmprestimo(Livro livro) {
+		return calculadorEmprestimo.fazerEmprestimo(this, livro);
+	}
+	
 }
