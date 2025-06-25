@@ -70,7 +70,7 @@ public abstract class Usuario {
 	    for (Emprestimo emprestimo : emprestimosAtuais) {
 	        Date prazo = emprestimo.getPrazoDevolucao();
 
-	        if (prazo != null && hoje.after(prazo)) {
+	        if (hoje.after(prazo)) {
 	            
 	            return true;
 	        }
