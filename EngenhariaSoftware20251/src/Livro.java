@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+
 import java.util.Date;
 
-public class Livro {
+public class Livro implements Subject {
 	private String codigo;
 	private String titulo;
 	private String editora;
@@ -10,6 +11,7 @@ public class Livro {
 	private Date anoPublicacao;
 	private ArrayList<Reserva> reservas;
 	private ArrayList<Exemplar> exemplares;
+	private ArrayList<Observer> observers;
 	
 	public Livro(String codigo, String titulo, String editora, String autores, String edição, Date anoPublicacao) {
 		this.codigo = codigo;
@@ -96,6 +98,24 @@ public class Livro {
 
 	public void setExemplares(ArrayList<Exemplar> exemplares) {
 		this.exemplares = exemplares;
+	}
+	
+	public void registerObserver(Observer o) {
+		observers.add(o);
+	}
+	
+	public void removeObserver(Observer o) {
+		int i = observers.indexOf(o);
+		if (i >= 0) {
+			observers.remove(i);
+		}
+	}
+	
+	public void notifyObservers() {
+		for (int i = 0; i < observers.size(); i++) {
+			Observer observer = observers.get(i);
+			observer.update();
+		}
 	}
 	
 
