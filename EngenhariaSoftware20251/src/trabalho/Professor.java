@@ -1,3 +1,4 @@
+package trabalho;
 
 public class Professor extends Usuario implements Observer {
 	private static int tempoEmprestimo = 8;
@@ -25,6 +26,10 @@ public class Professor extends Usuario implements Observer {
 	public void update() {
 		this.contadorNotificacoes = this.contadorNotificacoes + 1;
 		
+	}
+
+	public int getLimiteEmprestimo() {
+		return 0;
 	}
 
 }

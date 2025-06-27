@@ -1,3 +1,4 @@
+package trabalho;
 import java.util.ArrayList;
 
 import java.util.Date;
@@ -94,6 +95,15 @@ public class Livro implements Subject {
 
 	public ArrayList<Exemplar> getExemplares() {
 		return exemplares;
+	}
+	public ArrayList<Exemplar> obterExemplaresDisponiveis(){
+		ArrayList<Exemplar> exemplaresDisponiveis = new ArrayList<Exemplar>();
+		for(Exemplar exemplar : this.exemplares) {
+			if(exemplar.isDisponivel()) {
+				exemplaresDisponiveis.add(exemplar);
+			}
+		}
+		return exemplaresDisponiveis;
 	}
 
 	public void setExemplares(ArrayList<Exemplar> exemplares) {

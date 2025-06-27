@@ -1,10 +1,13 @@
+package trabalho;
 import java.util.ArrayList;
 import java.util.Date;
+
+import regrasEmprestimo.IRegraEmprestimo;
 
 public abstract class Usuario {
 	private String codigo;
     private String nome;
-    private ICalculadorEmprestimo calculadorEmprestimo;
+    private IRegraEmprestimo regraEmprestimo;
     private ArrayList<Emprestimo> emprestimosAtuais;
     private ArrayList<Emprestimo> emprestimosPassados;
     private ArrayList<Reserva> reservas;
@@ -55,12 +58,12 @@ public abstract class Usuario {
 		this.reservas = reservas;
 	}
 
-	public ICalculadorEmprestimo getCalculadorEmprestimo() {
-		return calculadorEmprestimo;
+	public IRegraEmprestimo getCalculadorEmprestimo() {
+		return regraEmprestimo;
 	}
 
-	public void setCalculadorEmprestimo(ICalculadorEmprestimo calculadorEmprestimo) {
-		this.calculadorEmprestimo = calculadorEmprestimo;
+	public void setCalculadorEmprestimo(IRegraEmprestimo regraEmprestimo) {
+		this.regraEmprestimo = regraEmprestimo;
 	}
 	public abstract int getTempoEmprestimo();
 
@@ -80,7 +83,8 @@ public abstract class Usuario {
 	}
 	
 	public boolean fazerEmprestimo(Livro livro) {
-		return calculadorEmprestimo.fazerEmprestimo(this, livro);
+		return regraEmprestimo.verificaEmprestimo(this, livro);
 	}
+	public abstract int getLimiteEmprestimo();
 	
 }
