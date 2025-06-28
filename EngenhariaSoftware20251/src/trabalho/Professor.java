@@ -1,6 +1,7 @@
 package trabalho;
 
-public class Professor extends Usuario implements Observer {
+
+public class Professor extends Usuario {
 	private static int tempoEmprestimo = 8;
 	private int contadorNotificacoes;
 	
@@ -30,6 +31,9 @@ public class Professor extends Usuario implements Observer {
 
 	public int getLimiteEmprestimo() {
 		return 0;
+	}
+	public void consultarNotificacoes() {
+		System.out.println("Numero de notificacoes para o usuario " + this.getCodigo()+ ": "+ this.contadorNotificacoes);
 	}
 
 }

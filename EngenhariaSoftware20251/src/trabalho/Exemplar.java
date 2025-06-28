@@ -36,6 +36,15 @@ public class Exemplar {
 	public void setEmprestimo(Emprestimo emprestimo) {
 		this.emprestimo = emprestimo;
 	}
-	
+	public void consultarExemplar() {
+		System.out.println("\n" + this.getCodigo() + ", Status: " );
+		if(this.isDisponivel()) {
+			System.out.println("Disponivel.");
+		}
+		else {
+			System.out.println("Emprestado: \n---->");
+			this.getEmprestimo().consultarEmprestimoExemplar();
+		}
+	}
 	
 }

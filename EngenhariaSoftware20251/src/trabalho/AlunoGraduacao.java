@@ -14,4 +14,12 @@ public class AlunoGraduacao extends Usuario {
 		return AlunoGraduacao.limiteEmprestimo;
 	}
 	
+	public void update() {
+		
+		
+	}
+	public void consultarNotificacoes() {
+		
+	}	
+	
 }

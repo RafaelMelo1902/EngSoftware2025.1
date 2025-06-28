@@ -18,10 +18,10 @@ public class RegraUmEmprestimo implements IRegraEmprestimo {
 			}
 		}
 		
-		if (!livro.obterExemplaresDisponiveis().isEmpty()) {
+		if (!livro.obterListaExemplaresDisponiveis().isEmpty()) {
 			if(!usuario.verificaDevedor()) {
 				if(usuario.getEmprestimosAtuais().size() < usuario.getLimiteEmprestimo()) {
-					if (livro.getReservas().size() < livro.obterExemplaresDisponiveis().size()) {
+					if (livro.getReservas().size() < livro.obterListaExemplaresDisponiveis().size()) {
 						for(Reserva reserva : livro.getReservas()) {
 							if (reserva.getUsuario() == usuario) {
 								Console.InsucessoEmprestimoReservaAberta();
@@ -33,6 +33,8 @@ public class RegraUmEmprestimo implements IRegraEmprestimo {
 					else {
 						for( Reserva reserva : livro.getReservas()) {
 							if (reserva.getUsuario() == usuario) {
+								usuario.removerReserva(reserva);
+								livro.removerReserva(reserva);
 								return true;
 							}
 						}

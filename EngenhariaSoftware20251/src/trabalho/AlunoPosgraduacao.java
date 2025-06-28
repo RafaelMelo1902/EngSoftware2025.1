@@ -14,6 +14,13 @@ public class AlunoPosgraduacao extends Usuario {
 	public int getLimiteEmprestimo() {
 		return AlunoPosgraduacao.limiteEmprestimo;
 	}
+
+	public void update() {
+		
+	}
+	public void consultarNotificacoes() {
+		
+	}	
 	
 
 }

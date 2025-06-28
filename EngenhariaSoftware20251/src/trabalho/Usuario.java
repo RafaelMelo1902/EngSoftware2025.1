@@ -3,8 +3,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import regrasEmprestimo.IRegraEmprestimo;
+import observer.Observer;
 
-public abstract class Usuario {
+public abstract class Usuario implements Observer {
 	private String codigo;
     private String nome;
     private IRegraEmprestimo regraEmprestimo;
@@ -38,8 +39,12 @@ public abstract class Usuario {
 		return emprestimosAtuais;
 	}
 
+
 	public void setEmprestimosAtuais(ArrayList<Emprestimo> emprestimosAtuais) {
 		this.emprestimosAtuais = emprestimosAtuais;
+	}
+	public void adicionarEmprestimoAtual(Emprestimo emprestimo) {
+		this.emprestimosAtuais.add(emprestimo);
 	}
 
 	public ArrayList<Emprestimo> getEmprestimosPassados() {
@@ -49,7 +54,11 @@ public abstract class Usuario {
 	public void setEmprestimosPassados(ArrayList<Emprestimo> emprestimosPassados) {
 		this.emprestimosPassados = emprestimosPassados;
 	}
-
+	
+	public void atualizarEmprestimos(Emprestimo emprestimo) {
+		this.emprestimosAtuais.remove(emprestimo);
+		this.emprestimosPassados.add(emprestimo);
+	}
 	public ArrayList<Reserva> getReservas() {
 		return reservas;
 	}
@@ -57,7 +66,13 @@ public abstract class Usuario {
 	public void setReservas(ArrayList<Reserva> reservas) {
 		this.reservas = reservas;
 	}
-
+	
+	public void adicionarReserva(Reserva reserva) {
+		this.reservas.add(reserva);
+	}
+	public void removerReserva(Reserva reserva) {
+		this.reservas.remove(reserva);
+	}
 	public IRegraEmprestimo getCalculadorEmprestimo() {
 		return regraEmprestimo;
 	}
@@ -66,6 +81,7 @@ public abstract class Usuario {
 		this.regraEmprestimo = regraEmprestimo;
 	}
 	public abstract int getTempoEmprestimo();
+	public abstract int getLimiteEmprestimo();
 
 	public boolean verificaDevedor() {
 	    Date hoje = new Date();
@@ -82,9 +98,28 @@ public abstract class Usuario {
 	    return false;
 	}
 	
-	public boolean fazerEmprestimo(Livro livro) {
+	public boolean verificaEmprestimo(Livro livro) {
 		return regraEmprestimo.verificaEmprestimo(this, livro);
 	}
-	public abstract int getLimiteEmprestimo();
-	
+	public Exemplar devolverLivro(Livro livro) {
+		
+		for(Emprestimo emprestimo : this.emprestimosAtuais) {
+			Exemplar exemplar = emprestimo.getExemplar();
+			if(exemplar.getLivro() == livro) {
+				emprestimo.setDiaDevolucao(new Date());
+				this.atualizarEmprestimos(emprestimo);
+				return exemplar;
+			}
+		}
+		return null;
+	}
+	public void consultarUsuario() {
+		for(Emprestimo emprestimo : this.emprestimosAtuais) {
+			emprestimo.consultarEmprestimoAtual();
+		}
+		for(Emprestimo emprestimo : this.emprestimosPassados) {
+			emprestimo.consultarEmprestimoPassado();
+		}
+	}
+	public abstract void consultarNotificacoes();
 }

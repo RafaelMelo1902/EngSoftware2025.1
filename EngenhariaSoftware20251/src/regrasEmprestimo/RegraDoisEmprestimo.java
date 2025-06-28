@@ -7,7 +7,7 @@ public class RegraDoisEmprestimo implements IRegraEmprestimo {
 
 	@Override
 	public boolean verificaEmprestimo(Usuario usuario, Livro livro) {
-		if(livro.obterExemplaresDisponiveis().size() > 0) {
+		if(livro.obterListaExemplaresDisponiveis().size() > 0) {
 			if(!usuario.verificaDevedor()) {
 				return true;
 			}

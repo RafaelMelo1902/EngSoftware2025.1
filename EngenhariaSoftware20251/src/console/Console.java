@@ -27,5 +27,5 @@ public class Console {
 		System.out.println("Não foi possível realizar o empréstimo, "
 				+ "pois o usuário já possui um empréstimo em andamento do mesmo livro");
 		}
-
+	
 }

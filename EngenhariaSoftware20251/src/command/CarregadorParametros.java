@@ -1,4 +1,4 @@
-package trabalho;
+package command;
 
 public class CarregadorParametros {
 

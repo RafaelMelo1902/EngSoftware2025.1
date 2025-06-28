@@ -1,4 +1,4 @@
-package trabalho;
+package observer;
 
 public interface Observer {
 	

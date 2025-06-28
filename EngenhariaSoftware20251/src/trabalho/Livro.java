@@ -3,6 +3,9 @@ import java.util.ArrayList;
 
 import java.util.Date;
 
+import observer.Observer;
+import observer.Subject;
+
 public class Livro implements Subject {
 	private String codigo;
 	private String titulo;
@@ -92,11 +95,19 @@ public class Livro implements Subject {
 	public void setReservas(ArrayList<Reserva> reservas) {
 		this.reservas = reservas;
 	}
-
+	public void adicionarReserva(Reserva reserva) {
+		this.reservas.add(reserva);
+		if(reservas.size() > 2 ) {
+			this.notifyObservers();
+		}
+	}
+	public void removerReserva(Reserva reserva) {
+		this.reservas.remove(reserva);
+	}
 	public ArrayList<Exemplar> getExemplares() {
 		return exemplares;
 	}
-	public ArrayList<Exemplar> obterExemplaresDisponiveis(){
+	public ArrayList<Exemplar> obterListaExemplaresDisponiveis(){
 		ArrayList<Exemplar> exemplaresDisponiveis = new ArrayList<Exemplar>();
 		for(Exemplar exemplar : this.exemplares) {
 			if(exemplar.isDisponivel()) {
@@ -104,6 +115,10 @@ public class Livro implements Subject {
 			}
 		}
 		return exemplaresDisponiveis;
+	}
+	public Exemplar obterExemplarDisponivel() {
+		ArrayList<Exemplar> exemplaresDisponiveis = this.obterListaExemplaresDisponiveis();
+		return exemplaresDisponiveis.get(0);
 	}
 
 	public void setExemplares(ArrayList<Exemplar> exemplares) {
@@ -127,7 +142,17 @@ public class Livro implements Subject {
 			observer.update();
 		}
 	}
-	
+	public void ConsultarLivro() {
+		System.out.println("Titulo: " + this.titulo + "\nQuantidade de reservas: " + this.reservas.size());
+		for(Reserva reserva : reservas) {
+			System.out.println("\n---> " + reserva.getUsuario());
+		}
+		System.out.println("\nExemplares:");
+		for(Exemplar exemplar : exemplares) {
+			exemplar.consultarExemplar();
+			
+		}
+	}
 
 	
 	
