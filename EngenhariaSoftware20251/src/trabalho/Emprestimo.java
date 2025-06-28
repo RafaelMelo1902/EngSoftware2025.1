@@ -67,7 +67,10 @@ public class Emprestimo {
 	public Date getDiaDevolucao() {
 		return diaDevolucao;
 	}
-
+	public void devolverExemplar() {
+		exemplar.setEmprestimo(null);
+		exemplar.setDisponivel(true);
+	}
 
 
 	public void setDiaDevolucao(Date diaDevolucao) {

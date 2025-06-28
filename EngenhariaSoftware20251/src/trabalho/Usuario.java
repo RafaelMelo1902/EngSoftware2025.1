@@ -101,17 +101,18 @@ public abstract class Usuario implements Observer {
 	public boolean verificaEmprestimo(Livro livro) {
 		return regraEmprestimo.verificaEmprestimo(this, livro);
 	}
-	public Exemplar devolverLivro(Livro livro) {
+	public void devolverLivro(Livro livro) {
 		
 		for(Emprestimo emprestimo : this.emprestimosAtuais) {
 			Exemplar exemplar = emprestimo.getExemplar();
 			if(exemplar.getLivro() == livro) {
+				emprestimo.devolverExemplar();
 				emprestimo.setDiaDevolucao(new Date());
 				this.atualizarEmprestimos(emprestimo);
-				return exemplar;
+				return;
 			}
 		}
-		return null;
+		return;
 	}
 	public void consultarUsuario() {
 		for(Emprestimo emprestimo : this.emprestimosAtuais) {
