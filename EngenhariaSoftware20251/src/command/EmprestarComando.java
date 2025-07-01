@@ -32,6 +32,8 @@ public class EmprestarComando implements Comando {
 			usuario.adicionarEmprestimoAtual(emprestimo);
 			
 		}
+		
+		System.out.println("emp realizado!");
 	}
 
 }

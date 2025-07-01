@@ -11,9 +11,14 @@ public class Exemplar {
 		this.livro = livro;
 		this.codigo = codigo;
 		this.disponivel = true;
+		this.setLivro(livro);
+		livro.adicionarExemplar(this);
 	}
 	public Livro getLivro() {
 		return livro;
+	}
+	public String getTituloLivro() {
+		return livro.getTitulo();
 	}
 	public void setLivro(Livro livro) {
 		this.livro = livro;

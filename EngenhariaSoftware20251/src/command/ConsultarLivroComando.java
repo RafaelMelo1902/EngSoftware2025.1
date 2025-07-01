@@ -12,6 +12,7 @@ public class ConsultarLivroComando implements Comando{
 		Livro livro = repositorio.obterLivroPorCodigo(carregadorParametros.getParametroUm());
 		
 		livro.ConsultarLivro();
+		System.out.println("Consulta Livros realizada!");
 	}
 
 }

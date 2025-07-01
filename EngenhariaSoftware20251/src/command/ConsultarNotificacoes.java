@@ -12,5 +12,6 @@ public class ConsultarNotificacoes implements Comando {
 		Usuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
 		
 		usuario.consultarNotificacoes();
+		System.out.println("ntf realizada!");
 	}
 }

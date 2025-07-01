@@ -14,7 +14,7 @@ public class DevolverComando implements Comando {
 		Livro livro = repositorio.obterLivroPorCodigo(carregadorParametros.getParametroDois());
 		
 		usuario.devolverLivro(livro);
-		
+		System.out.println("dev realizada!");
 		
 		
 	}

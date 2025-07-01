@@ -77,7 +77,7 @@ public abstract class Usuario implements Observer {
 		return regraEmprestimo;
 	}
 
-	public void setCalculadorEmprestimo(IRegraEmprestimo regraEmprestimo) {
+	public void setRegraEmprestimo(IRegraEmprestimo regraEmprestimo) {
 		this.regraEmprestimo = regraEmprestimo;
 	}
 	public abstract int getTempoEmprestimo();
@@ -115,9 +115,11 @@ public abstract class Usuario implements Observer {
 		return;
 	}
 	public void consultarUsuario() {
+		System.out.println("Emprestimos atuais:");
 		for(Emprestimo emprestimo : this.emprestimosAtuais) {
 			emprestimo.consultarEmprestimoAtual();
 		}
+		System.out.println("Emprestimos Passados:");
 		for(Emprestimo emprestimo : this.emprestimosPassados) {
 			emprestimo.consultarEmprestimoPassado();
 		}

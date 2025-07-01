@@ -20,7 +20,7 @@ public class ReservarComando implements Comando{
 		Reserva reserva = new Reserva(usuario, livro, new Date());
 		usuario.adicionarReserva(reserva);
 		livro.adicionarReserva(reserva);
-		
+		System.out.println("res realizado!");
 	}
 
 }

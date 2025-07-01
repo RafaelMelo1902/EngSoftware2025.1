@@ -1,5 +1,6 @@
 package trabalho;
 
+import regrasEmprestimo.RegraDoisEmprestimo;
 
 public class Professor extends Usuario {
 	private static int tempoEmprestimo = 8;
@@ -8,6 +9,7 @@ public class Professor extends Usuario {
 	public Professor(String codigo, String nome) {
 		super(codigo, nome);
 		contadorNotificacoes = 0;
+		this.setRegraEmprestimo(new RegraDoisEmprestimo());
 	}
 
 	public int getContadorNotificacoes() {

@@ -80,9 +80,10 @@ public class Emprestimo {
 		System.out.println("Usuario: " + usuario.getNome() + "\nData de emprestimo: " + this.diaEmprestimo + "Prazo de devolucao" + this.prazoDevolucao);
 	}
 	public void consultarEmprestimoAtual() {
-		System.out.println("Titulo: " + this.exemplar.getLivro() + ", Data do emprestimo: " + this.diaEmprestimo + ", em curso, data de devolucao: " + this.prazoDevolucao);
+		
+		System.out.println("Titulo: " + this.exemplar.getTituloLivro() + "\nData do emprestimo: " + this.diaEmprestimo + "\nem curso \nPrazo de devolucao: " + this.prazoDevolucao);
 	}
 	public void consultarEmprestimoPassado() {
-		System.out.println("Titulo: " + this.exemplar.getLivro() + ", Data do emprestimo: " + this.diaEmprestimo + ", finalizado, data de devolucao: " + this.prazoDevolucao);
+		System.out.println("Titulo: " + this.exemplar.getTituloLivro() + "\nData do emprestimo: " + this.diaEmprestimo + "\nfinalizado \ndata de devolucao: " + this.diaDevolucao);
 	}
 }

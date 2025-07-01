@@ -15,7 +15,7 @@ public class AdicionarObservadorComando implements Comando {
 		Livro livro = repositorio.obterLivroPorCodigo(carregadorParametros.getParametroDois());
 		
 		livro.registerObserver(usuario);
-		
+		System.out.println("obs realizada!");
 	}
 
 }

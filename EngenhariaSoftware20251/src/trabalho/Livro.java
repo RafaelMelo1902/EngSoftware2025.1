@@ -107,6 +107,9 @@ public class Livro implements Subject {
 	public ArrayList<Exemplar> getExemplares() {
 		return exemplares;
 	}
+	public void adicionarExemplar(Exemplar exemplar) {
+		this.exemplares.add(exemplar);
+	}
 	public ArrayList<Exemplar> obterListaExemplaresDisponiveis(){
 		ArrayList<Exemplar> exemplaresDisponiveis = new ArrayList<Exemplar>();
 		for(Exemplar exemplar : this.exemplares) {

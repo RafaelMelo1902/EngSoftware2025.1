@@ -12,6 +12,7 @@ public class ConsultarUsuarioComando implements Comando {
 		Usuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
 		
 		usuario.consultarUsuario();
+		System.out.println("usu realizada!");
 	}
 
 }
