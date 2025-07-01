@@ -26,6 +26,7 @@ public class Livro implements Subject {
 		this.anoPublicacao = anoPublicacao;
 		this.reservas = new ArrayList<Reserva>();
 		this.exemplares = new ArrayList<Exemplar>();
+		this.observers = new ArrayList<Observer>();
 		
 	}
 	
@@ -148,9 +149,9 @@ public class Livro implements Subject {
 	public void ConsultarLivro() {
 		System.out.println("Titulo: " + this.titulo + "\nQuantidade de reservas: " + this.reservas.size());
 		for(Reserva reserva : reservas) {
-			System.out.println("\n---> " + reserva.getUsuario());
+			System.out.println("---> " + reserva.getNomeUsuario());
 		}
-		System.out.println("\nExemplares:");
+		System.out.println("Exemplares:");
 		for(Exemplar exemplar : exemplares) {
 			exemplar.consultarExemplar();
 			

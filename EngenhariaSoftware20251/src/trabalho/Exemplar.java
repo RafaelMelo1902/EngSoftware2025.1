@@ -42,14 +42,15 @@ public class Exemplar {
 		this.emprestimo = emprestimo;
 	}
 	public void consultarExemplar() {
-		System.out.println("\n" + this.getCodigo() + ", Status: " );
-		if(this.isDisponivel()) {
-			System.out.println("Disponivel.");
-		}
-		else {
-			System.out.println("Emprestado: \n---->");
-			this.getEmprestimo().consultarEmprestimoExemplar();
-		}
+		System.out.println("---> Exemplar " + this.getCodigo()+ ":" );
+		if (this.isDisponivel()) {
+	        System.out.println("     Status: Disponível.");
+	    } else {
+	        System.out.println("     Status: Emprestado");
+	        System.out.println("     Detalhes do empréstimo:");
+	        System.out.print("     ");
+	        this.getEmprestimo().consultarEmprestimoExemplar();
+	    }
 	}
 	
 }

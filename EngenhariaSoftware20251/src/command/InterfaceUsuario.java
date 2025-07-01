@@ -1,6 +1,7 @@
 package command;
 
 import java.util.HashMap;
+
 import java.util.Scanner;
 
 import trabalho.Repositorio;
@@ -36,6 +37,7 @@ public class InterfaceUsuario {
 
             if (linha.equalsIgnoreCase("sai")) {
                 System.out.println("Encerrando o sistema...");
+                System.out.println("Sistema encerrado.");
                 break;
             }
 

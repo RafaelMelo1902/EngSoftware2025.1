@@ -118,11 +118,19 @@ public abstract class Usuario implements Observer {
 		System.out.println("Emprestimos atuais:");
 		for(Emprestimo emprestimo : this.emprestimosAtuais) {
 			emprestimo.consultarEmprestimoAtual();
+			System.out.println("		================================================");
 		}
 		System.out.println("Emprestimos Passados:");
 		for(Emprestimo emprestimo : this.emprestimosPassados) {
 			emprestimo.consultarEmprestimoPassado();
+			System.out.println("		================================================");
 		}
+		System.out.println("Reservas:");
+		for(Reserva reserva : this.reservas) {
+			reserva.consultaReserva();
+			System.out.println("		================================================");
+		}
+		
 	}
 	public abstract void consultarNotificacoes();
 }

@@ -21,25 +21,19 @@ public class RegraUmEmprestimo implements IRegraEmprestimo {
 		if (!livro.obterListaExemplaresDisponiveis().isEmpty()) {
 			if(!usuario.verificaDevedor()) {
 				if(usuario.getEmprestimosAtuais().size() < usuario.getLimiteEmprestimo()) {
-					if (livro.getReservas().size() < livro.obterListaExemplaresDisponiveis().size()) {
-						for(Reserva reserva : livro.getReservas()) {
-							if (reserva.getUsuario() == usuario) {
-								Console.InsucessoEmprestimoReservaAberta();
-								return false;
+					for(Reserva reserva : livro.getReservas()) {
+						if (reserva.getUsuario() == usuario) {
+							usuario.removerReserva(reserva);
+							livro.removerReserva(reserva);
+							return true;
 							}
 						}
-						return true;
-					}
-					else {
-						for( Reserva reserva : livro.getReservas()) {
-							if (reserva.getUsuario() == usuario) {
-								usuario.removerReserva(reserva);
-								livro.removerReserva(reserva);
-								return true;
-							}
+						if (livro.getReservas().size() < livro.obterListaExemplaresDisponiveis().size()) {
+							return true;
 						}
-						Console.InsucessoEmprestimoReservasExemplares();
-					}
+						else  {
+							Console.InsucessoEmprestimoReservasExemplares();	
+						}
 				}
 				else {
 					Console.InsucessoEmprestimoLimiteEmprestimo();

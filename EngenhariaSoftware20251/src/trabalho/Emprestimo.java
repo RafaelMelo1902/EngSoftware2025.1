@@ -77,13 +77,13 @@ public class Emprestimo {
 		this.diaDevolucao = diaDevolucao;
 	}
 	public void consultarEmprestimoExemplar() {
-		System.out.println("Usuario: " + usuario.getNome() + "\nData de emprestimo: " + this.diaEmprestimo + "Prazo de devolucao" + this.prazoDevolucao);
+		System.out.println("		Usuario: " + usuario.getNome() + "\n		Data de emprestimo: " + this.diaEmprestimo + "\n		Prazo de devolucao:" + this.prazoDevolucao);
 	}
 	public void consultarEmprestimoAtual() {
 		
-		System.out.println("Titulo: " + this.exemplar.getTituloLivro() + "\nData do emprestimo: " + this.diaEmprestimo + "\nem curso \nPrazo de devolucao: " + this.prazoDevolucao);
+		System.out.println("		Titulo: " + this.exemplar.getTituloLivro() + "\n		Data do emprestimo: " + this.diaEmprestimo + "\n		Status: em curso \n		Prazo de devolucao: " + this.prazoDevolucao);
 	}
 	public void consultarEmprestimoPassado() {
-		System.out.println("Titulo: " + this.exemplar.getTituloLivro() + "\nData do emprestimo: " + this.diaEmprestimo + "\nfinalizado \ndata de devolucao: " + this.diaDevolucao);
+		System.out.println("		Titulo: " + this.exemplar.getTituloLivro() + "\n		Data do emprestimo: " + this.diaEmprestimo + "\n		Status: finalizado \n 		data de devolucao: " + this.diaDevolucao);
 	}
 }

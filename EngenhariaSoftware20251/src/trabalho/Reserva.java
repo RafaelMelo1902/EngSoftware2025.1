@@ -33,7 +33,13 @@ public class Reserva {
 		this.dataReserva = dataReserva;
 	}
 	
-	
-	
+	public String getNomeUsuario() {
+		return this.usuario.getNome();
+		
+	}
+	public void consultaReserva() {
+		System.out.println("		Titulo: " + this.livro.getTitulo());
+		System.out.println("		Data de Solicitacao da reserva: " + this.dataReserva);
+	}
 
 }
