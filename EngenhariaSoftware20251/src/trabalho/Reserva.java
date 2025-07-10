@@ -37,6 +37,9 @@ public class Reserva {
 		return this.usuario.getNome();
 		
 	}
+	public String obterTituloLivro() {
+		return this.livro.getTitulo();
+	}
 	public void consultaReserva() {
 		System.out.println("		Titulo: " + this.livro.getTitulo());
 		System.out.println("		Data de Solicitacao da reserva: " + this.dataReserva);

@@ -1,10 +1,18 @@
-package command;
+package trabalho;
 
 import java.util.HashMap;
 
 import java.util.Scanner;
 
-import trabalho.Repositorio;
+import command.AdicionarObservadorComando;
+import command.CarregadorParametros;
+import command.Comando;
+import command.ConsultarLivroComando;
+import command.ConsultarNotificacoes;
+import command.ConsultarUsuarioComando;
+import command.DevolverComando;
+import command.EmprestarComando;
+import command.ReservarComando;
 
 
 public class InterfaceUsuario {

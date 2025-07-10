@@ -101,6 +101,7 @@ public abstract class Usuario implements Observer {
 	public boolean verificaEmprestimo(Livro livro) {
 		return regraEmprestimo.verificaEmprestimo(this, livro);
 	}
+	/*
 	public void devolverLivro(Livro livro) {
 		
 		for(Emprestimo emprestimo : this.emprestimosAtuais) {
@@ -114,6 +115,7 @@ public abstract class Usuario implements Observer {
 		}
 		return;
 	}
+	
 	public void consultarUsuario() {
 		System.out.println("Emprestimos atuais:");
 		for(Emprestimo emprestimo : this.emprestimosAtuais) {
@@ -131,6 +133,6 @@ public abstract class Usuario implements Observer {
 			System.out.println("		================================================");
 		}
 		
-	}
+	} */
 	public abstract void consultarNotificacoes();
 }

@@ -67,23 +67,27 @@ public class Emprestimo {
 	public Date getDiaDevolucao() {
 		return diaDevolucao;
 	}
+	/*
 	public void devolverExemplar() {
 		exemplar.setEmprestimo(null);
 		exemplar.setDisponivel(true);
 	}
-
-
+	*/
+	public String obterTituloLivro() {
+		return this.exemplar.getTituloLivro();
+	}
 	public void setDiaDevolucao(Date diaDevolucao) {
 		this.diaDevolucao = diaDevolucao;
 	}
 	public void consultarEmprestimoExemplar() {
 		System.out.println("		Usuario: " + usuario.getNome() + "\n		Data de emprestimo: " + this.diaEmprestimo + "\n		Prazo de devolucao:" + this.prazoDevolucao);
 	}
+	/*
 	public void consultarEmprestimoAtual() {
 		
 		System.out.println("		Titulo: " + this.exemplar.getTituloLivro() + "\n		Data do emprestimo: " + this.diaEmprestimo + "\n		Status: em curso \n		Prazo de devolucao: " + this.prazoDevolucao);
 	}
 	public void consultarEmprestimoPassado() {
 		System.out.println("		Titulo: " + this.exemplar.getTituloLivro() + "\n		Data do emprestimo: " + this.diaEmprestimo + "\n		Status: finalizado \n 		data de devolucao: " + this.diaDevolucao);
-	}
+	} */
 }

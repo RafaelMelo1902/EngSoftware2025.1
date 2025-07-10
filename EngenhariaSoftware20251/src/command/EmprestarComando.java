@@ -3,11 +3,13 @@ import java.util.Calendar;
 import java.util.Date;
 import trabalho.Livro;
 import trabalho.Repositorio;
+import trabalho.Reserva;
 import trabalho.Usuario;
 import trabalho.Emprestimo;
 import trabalho.Exemplar;
 
 public class EmprestarComando implements Comando {
+	
 	public void executar(CarregadorParametros carregadorParametros) {
 		Repositorio repositorio = Repositorio.obterInstancia();
 		
@@ -18,6 +20,13 @@ public class EmprestarComando implements Comando {
 		boolean  podeEmprestar = usuario.verificaEmprestimo(livro);
 		
 		if(podeEmprestar) {
+			for(Reserva reserva : livro.getReservas()) {
+				if (reserva.getUsuario() == usuario) {
+					usuario.removerReserva(reserva);
+					livro.removerReserva(reserva);
+					break;
+					}
+				}
 			Exemplar exemplar = livro.obterExemplarDisponivel();
 			
 			Date hoje = new Date();
