@@ -101,38 +101,6 @@ public abstract class Usuario implements Observer {
 	public boolean verificaEmprestimo(Livro livro) {
 		return regraEmprestimo.verificaEmprestimo(this, livro);
 	}
-	/*
-	public void devolverLivro(Livro livro) {
-		
-		for(Emprestimo emprestimo : this.emprestimosAtuais) {
-			Exemplar exemplar = emprestimo.getExemplar();
-			if(exemplar.getLivro() == livro) {
-				emprestimo.devolverExemplar();
-				emprestimo.setDiaDevolucao(new Date());
-				this.atualizarEmprestimos(emprestimo);
-				return;
-			}
-		}
-		return;
-	}
 	
-	public void consultarUsuario() {
-		System.out.println("Emprestimos atuais:");
-		for(Emprestimo emprestimo : this.emprestimosAtuais) {
-			emprestimo.consultarEmprestimoAtual();
-			System.out.println("		================================================");
-		}
-		System.out.println("Emprestimos Passados:");
-		for(Emprestimo emprestimo : this.emprestimosPassados) {
-			emprestimo.consultarEmprestimoPassado();
-			System.out.println("		================================================");
-		}
-		System.out.println("Reservas:");
-		for(Reserva reserva : this.reservas) {
-			reserva.consultaReserva();
-			System.out.println("		================================================");
-		}
-		
-	} */
 	public abstract void consultarNotificacoes();
 }

@@ -146,17 +146,6 @@ public class Livro implements Subject {
 			observer.update();
 		}
 	}
-	public void ConsultarLivro() {
-		System.out.println("Titulo: " + this.titulo + "\nQuantidade de reservas: " + this.reservas.size());
-		for(Reserva reserva : reservas) {
-			System.out.println("---> " + reserva.getNomeUsuario());
-		}
-		System.out.println("Exemplares:");
-		for(Exemplar exemplar : exemplares) {
-			exemplar.consultarExemplar();
-			
-		}
-	}
 
 	
 	
