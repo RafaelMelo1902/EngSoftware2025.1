@@ -1,11 +1,11 @@
 package trabalho;
 import java.util.ArrayList;
+
 import java.util.Date;
 
 import regrasEmprestimo.IRegraEmprestimo;
-import observer.Observer;
 
-public abstract class Usuario implements Observer {
+public abstract class Usuario  {
 	private String codigo;
     private String nome;
     private IRegraEmprestimo regraEmprestimo;
@@ -102,5 +102,4 @@ public abstract class Usuario implements Observer {
 		return regraEmprestimo.verificaEmprestimo(this, livro);
 	}
 	
-	public abstract void consultarNotificacoes();
 }

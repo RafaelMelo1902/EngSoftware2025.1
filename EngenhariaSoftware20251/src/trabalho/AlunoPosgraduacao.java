@@ -18,12 +18,6 @@ public class AlunoPosgraduacao extends Usuario {
 		return AlunoPosgraduacao.limiteEmprestimo;
 	}
 
-	public void update() {
-		
-	}
-	public void consultarNotificacoes() {
-		
-	}	
 	
 
 }

@@ -1,8 +1,9 @@
 package trabalho;
 
+import observer.Observer;
 import regrasEmprestimo.RegraDoisEmprestimo;
 
-public class Professor extends Usuario {
+public class Professor extends Usuario implements Observer {
 	private static int tempoEmprestimo = 8;
 	private int contadorNotificacoes;
 	

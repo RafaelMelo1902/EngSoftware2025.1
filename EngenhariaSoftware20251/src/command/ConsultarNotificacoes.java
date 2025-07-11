@@ -1,6 +1,6 @@
 package command;
 
-import trabalho.Usuario;
+import observer.Observer;
 import trabalho.Repositorio;
 
 public class ConsultarNotificacoes implements Comando {
@@ -9,9 +9,9 @@ public class ConsultarNotificacoes implements Comando {
 	public void executar(CarregadorParametros carregadorParametros) {
 		Repositorio repositorio = Repositorio.obterInstancia();
 		
-		Usuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
+		Observer observer = (Observer) repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
 		
-		usuario.consultarNotificacoes();
+		observer.consultarNotificacoes();
 		System.out.println("ntf realizada!");
 	}
 }
